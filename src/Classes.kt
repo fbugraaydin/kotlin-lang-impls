@@ -1,4 +1,7 @@
 fun main(args: Array<String>) {
+
+    ClassHasCompanionObjects.companionFunc()
+
     val p = Person("Name", "Surname")
     println(p.fullName)
 
@@ -43,4 +46,32 @@ class Person(var name: String, var surname: String) {
 // Data classes
 data class PersonData(val name:String, var age:Int,var surname:String)
 
+
+class ClassHasCompanionObjects(name: String){
+    companion object{
+        fun companionFunc(){
+            println("It is companion object function!")
+        }
+    }
+
+}
+
+/**
+ * Can override properties of Interface.
+ * Functions can have body like fault method in java.
+ */
+interface MyInterface {
+    val prop: Int // abstract
+
+    val propertyWithImplementation: String
+        get() = "foo"
+
+    fun foo() {
+        print(prop)
+    }
+}
+
+class Child : MyInterface {
+    override val prop: Int = 10
+}
 
