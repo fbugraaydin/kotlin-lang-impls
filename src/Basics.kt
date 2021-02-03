@@ -13,6 +13,13 @@ fun main(args: Array<String>){
     age++
     println(age)
 
+    // Lazy Property
+    val p: String by lazy{
+        "I is a lazy string"
+    }
+
+    println(p)
+
     // Variables with nullable types
 
     var name:String? = null
@@ -29,6 +36,7 @@ fun main(args: Array<String>){
     // length, or return when name is null
     length = name?.length?:return
     println("Length : $length")
+
 }
 
 // Declaring function

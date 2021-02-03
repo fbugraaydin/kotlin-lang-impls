@@ -1,3 +1,5 @@
+import java.io.File
+
 fun main(args: Array<String>) {
 
     ClassHasCompanionObjects.companionFunc()
@@ -16,6 +18,12 @@ fun main(args: Array<String>) {
 
     val jake = mike.copy(name="Jake")
     println(jake)
+
+    println(Resource.name)
+
+    val files = File("Test").listFiles()
+
+    println(files?.size?: "empty")
 }
 
 // Primary Constructor
@@ -29,7 +37,7 @@ open class Person2(val name: String) {
 }
 
 class TurkishPerson(name: String) : Person2(name) {
-    override fun hello() = "Merhaba, Benim ismim $name"
+    override fun hello() = "Hi, my name is $name"
 }
 
 // Properties with assessors
@@ -45,6 +53,11 @@ class Person(var name: String, var surname: String) {
 
 // Data classes
 data class PersonData(val name:String, var age:Int,var surname:String)
+
+// Make singleton
+object Resource{
+    val name = "Singleton Object Name"
+}
 
 
 class ClassHasCompanionObjects(name: String){
